@@ -53,11 +53,12 @@ AdvancedLLM/
 ├── outputs/                  # Checkpoints and pretraining metrics
 ├── scripts/                  # Future command-line entry points
 ├── src/advanced_llm/
-│   ├── config.py             # Current step
-│   ├── data/                 # Streaming, tokenization, and packing
-│   ├── model/                # Model components
-│   ├── training/             # Pretraining loop and optimization
+│   ├── config.py             # Current substantive implementation
+│   ├── data/                 # Streaming, tokenization, packing, collators
+│   ├── model/                # Transformer architecture components
+│   ├── training/             # Pretraining and resumable training state
 │   └── utils/                # Shared infrastructure
 └── tests/
 ```
 
+All named pretraining modules now exist as purpose-only placeholders. We will replace those markers with implementation one or two concepts at a time. No SFT, preference training, RL, agent runtime, serving, or post-training files are included.
