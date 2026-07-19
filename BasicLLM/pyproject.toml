@@ -1,0 +1,7 @@
+[project]
+name = "basic-llm"
+version = "0.1.0"
+description = "A tiny character-level transformer for learning"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0", "torch>=2.4"]
+

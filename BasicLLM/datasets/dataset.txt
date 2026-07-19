@@ -1,0 +1,43 @@
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def square(x):
+    return x * x
+
+def is_even(x):
+    return x % 2 == 0
+
+def greet(name):
+    return "hello " + name
+
+def first(items):
+    return items[0]
+
+def last(items):
+    return items[-1]
+
+def length(items):
+    return len(items)
+
+def double(items):
+    return [x * 2 for x in items]
+
+def positive(items):
+    return [x for x in items if x > 0]
+
+def total(items):
+    result = 0
+    for item in items:
+        result = result + item
+    return result
+
+def countdown(n):
+    while n > 0:
+        print(n)
+        n = n - 1
