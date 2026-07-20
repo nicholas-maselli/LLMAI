@@ -43,7 +43,7 @@ We will implement only one or two concepts at a time:
 
 ## Current step
 
-Only the model and data configuration classes exist. No architecture or training behavior has been implemented yet.
+The configuration classes, native RMSNorm, rotary position embeddings, and complete grouped-query causal attention are implemented. The remaining modules are still purpose-only placeholders.
 
 ## Structure
 
