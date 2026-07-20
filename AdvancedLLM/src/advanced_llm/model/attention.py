@@ -46,11 +46,11 @@ class GroupedQueryAttentionProjections(nn.Module):
 
     def forward(
         self,
-        hidden_states: torch.Tensor,
+        x: torch.Tensor,
     ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        queries = self.query(hidden_states)
-        keys = self.key(hidden_states)
-        values = self.value(hidden_states)
+        queries = self.query(x)
+        keys = self.key(x)
+        values = self.value(x)
         return queries, keys, values
 
 
@@ -77,9 +77,9 @@ class GroupedQueryAttention(nn.Module):
         )
         self.output_projection = nn.Linear(hidden_size, hidden_size, bias=False)
 
-    def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
-        batch_size, sequence_length, hidden_size = hidden_states.shape
-        queries, keys, values = self.projections(hidden_states)
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        batch_size, sequence_length, hidden_size = x.shape
+        queries, keys, values = self.projections(x)
 
         queries = queries.view(
             batch_size,
@@ -100,8 +100,8 @@ class GroupedQueryAttention(nn.Module):
             self.projections.head_size,
         ).transpose(1, 2)
 
-        position_ids = torch.arange(sequence_length, device=hidden_states.device)
-        cosine, sine = self.rotary_embedding(position_ids, hidden_states.dtype)
+        position_ids = torch.arange(sequence_length, device=x.device)
+        cosine, sine = self.rotary_embedding(position_ids, x.dtype)
         queries = apply_rotary_position_embedding(queries, cosine, sine)
         keys = apply_rotary_position_embedding(keys, cosine, sine)
 

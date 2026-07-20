@@ -43,7 +43,7 @@ We will implement only one or two concepts at a time:
 
 ## Current step
 
-The configuration classes, native RMSNorm, rotary position embeddings, and complete grouped-query causal attention are implemented. The remaining modules are still purpose-only placeholders.
+The configuration classes, native RMSNorm, rotary position embeddings, grouped-query causal attention, SwiGLU MLP, and reusable transformer block are implemented. The remaining modules are still purpose-only placeholders.
 
 ## Structure
 
