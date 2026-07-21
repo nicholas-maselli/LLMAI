@@ -1,0 +1,28 @@
+# Reference configuration. The current entry point uses equivalent CLI flags;
+# YAML loading will be introduced separately so configuration mechanics do not
+# obscure the pretraining loop.
+
+model:
+  context_length: 2048
+  hidden_size: 768
+  layers: 12
+  attention_heads: 12
+  kv_heads: 4
+  feed_forward_multiplier: 2.6666666667
+
+data:
+  dataset: HuggingFaceFW/fineweb
+  dataset_subset: sample-10BT
+  tokenizer: artifacts/tokenizer.json
+  validation_fraction: 0.005
+
+training:
+  batch_size: 8
+  gradient_accumulation: 4
+  steps: 10000
+  learning_rate: 0.0003
+  warmup_steps: 500
+  precision: bf16
+  log_every: 10
+  validate_every: 500
+  checkpoint_every: 500
